@@ -120,7 +120,7 @@ export const fetchAllProjects = async (category?: string, endCursor?: string) =>
         category, endCursor
     }
     const first = 4
-    return category? makeGraphQLRequest(projectsQuery, variables): makeGraphQLRequest(getAllProjectsQuery, first);
+    return category? makeGraphQLRequest(projectsQuery, variables): makeGraphQLRequest(getAllProjectsQuery, {first});
     // return makeGraphQLRequest(projectsQuery, variables) //in place of variables we can write
 }
 
