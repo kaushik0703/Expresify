@@ -54,7 +54,7 @@ export const createUserMutation = `
 	}
 `;
 
-export const getAllProjectsQuery = gql`
+export const getAllProjectsQuery = `
   query allProjects($first: Int = 100) {
     projects: projectCollection(first: $first) {
       pageInfo {
