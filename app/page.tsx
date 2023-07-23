@@ -69,4 +69,5 @@ const Home = async ({ searchParams: { category, endcursor }} : Props) => {
   )
 }
 
+export const revalidate = 0;
 export default Home
