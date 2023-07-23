@@ -116,11 +116,11 @@ export const editProject = async (form: ProjectForm, projectId: string, token: s
 export const fetchAllProjects = async (category?: string, endCursor?: string) => {
     client.setHeader('x-api-key', apiKey);
     
-    const variables ={
+    const variables = category ? {
         category, endCursor
-    }
+    } : {endCursor}
     const first = 4
-    return category? makeGraphQLRequest(projectsQuery, variables): makeGraphQLRequest(getAllProjectsQuery, {first});
+    return category? makeGraphQLRequest(projectsQuery, variables): makeGraphQLRequest(getAllProjectsQuery, variables);
     // return makeGraphQLRequest(projectsQuery, variables) //in place of variables we can write
 }
 
