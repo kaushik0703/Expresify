@@ -5,6 +5,7 @@ export const metadata = {
   title: "Expresify",
   description: "Showcase and discover remarkable developer Projects",
 };
+export const revalidate = 0;
 
 export default function RootLayout({
   children,
