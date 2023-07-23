@@ -119,7 +119,8 @@ export const fetchAllProjects = async (category?: string, endCursor?: string) =>
     const variables ={
         category, endCursor
     }
-    return makeGraphQLRequest(projectsQuery, variables) //in place of variables we can write
+    return category? makeGraphQLRequest(projectsQuery, variables): makeGraphQLRequest(getAllProjectsQuery, {first});
+    // return makeGraphQLRequest(projectsQuery, variables) //in place of variables we can write
 }
 
 export const getProjectDetails = (id: string) => {
