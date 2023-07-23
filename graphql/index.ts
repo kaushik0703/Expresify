@@ -54,14 +54,14 @@ export const createUserMutation = `
 	}
 `;
 
-export const getAllProjectsQuery = `
-  query allProjects($first:Int=100) {
-    projects:projectCollection(first: $first) {
+export const getAllProjectsQuery = gql`
+  query allProjects($first: Int = 100) {
+    projects: projectCollection(first: $first) {
       pageInfo {
-        hasNextPage
-        hasPreviousPage
         startCursor
         endCursor
+        hasPreviousPage
+        hasNextPage
       }
       edges {
         node {
@@ -79,7 +79,7 @@ export const getAllProjectsQuery = `
             avatarUrl
           }
         }
-	cursor
+        cursor
       }
     }
   }
