@@ -54,14 +54,45 @@ export const createUserMutation = `
 	}
 `;
 
+// export const getAllProjectsQuery = `
+//   query allProjects($first: Int = 100) {
+//     projects: projectCollection(first: $first) {
+//       pageInfo {
+//         startCursor
+//         endCursor
+//         hasPreviousPage
+//         hasNextPage
+//       }
+//       edges {
+//         node {
+//           title
+//           githubUrl
+//           description
+//           liveSiteUrl
+//           id
+//           image
+//           category
+//           createdBy {
+//             id
+//             email
+//             name
+//             avatarUrl
+//           }
+//         }
+//         cursor
+//       }
+//     }
+//   }
+// `;
+
 export const getAllProjectsQuery = `
-  query allProjects($first: Int = 100) {
-    projects: projectCollection(first: $first) {
+  query allProjects($endCursor: String) {
+    projectSearch(first: 4, after: $endCursor) {
       pageInfo {
+        hasNextPage
+        hasPreviousPage
         startCursor
         endCursor
-        hasPreviousPage
-        hasNextPage
       }
       edges {
         node {
@@ -79,7 +110,6 @@ export const getAllProjectsQuery = `
             avatarUrl
           }
         }
-        cursor
       }
     }
   }
