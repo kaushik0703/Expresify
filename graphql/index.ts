@@ -116,7 +116,7 @@ export const getAllProjectsQuery = `
 `;
 
 export const projectsQuery = `
-  query getProjects($category: String, $endCursor: String @type(String)) {
+  query getProjects($category: String, $endCursor: String) {
     projectSearch(first: 4, after: $endCursor, filter: {category: {eq: $category}}) {
       pageInfo {
         hasNextPage
